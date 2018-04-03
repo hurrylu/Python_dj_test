@@ -1,0 +1,18 @@
+{% extends 'dailywork/base.html' %}
+
+{% block title %}报表统计 - 按用户{% endblock %}
+{% block menu  %}report_worker{% endblock %}
+{% block menu_name %}按用户统计{% endblock %}
+
+{% block body_block %}
+
+    <div id="toolbar">
+        <form id="report-search" method="get">
+            <div>
+                <label for="searchbar"></label>
+                <input type="text" size="40" name="{{ search_var }}" value="{{ cl.query }}" id="searchbar" autofocus>
+                <input type="submit" value="搜索">
+            </div>
+        </form>
+    </div>
+{% endblock %}

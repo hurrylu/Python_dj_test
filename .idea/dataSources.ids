@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Django default" uuid="0e5e6248-9011-44ae-b8e1-77ce7f15ee23">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Django default2" uuid="dff79931-b3b7-4764-adbb-3a211ae1105c">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Django default3" uuid="f2c94e59-b0a9-4376-80da-f6ef15d03ab3">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Django default4" uuid="4a8b998b-d482-4c87-ae45-d90525329faa">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

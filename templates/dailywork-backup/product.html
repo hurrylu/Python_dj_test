@@ -1,0 +1,52 @@
+{% extends 'dailywork/base.html' %}
+
+{% block title %}{{ product_name }}{% endblock %}
+
+{% block body_block %}
+    <div class="card md-3">
+        <div class="card-header">
+            <i class="fa fa-table"></i>产品列表
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    {% if product %}
+        {% if process_list %}
+            <table width="200" border="2">
+                <tbody>
+                <tr>
+                    <td>工序名</td>
+                    <td>工序代码</td>
+                </tr>
+                {% for process in process_list %}
+                <tr>
+                    <td>{{ process.process_name }}</td>
+                    <td>{{ process.process_code }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <strong>没有工序进行中，尚未开始生产</strong>
+        {% endif %}
+        <br />
+        {% if user.is_authenticated %}
+            <a href="/dailywork/product/{{ product_name_url }}/add_process/">添加工序</a>
+        {% endif %}
+    {% else %}
+        <strong>无此产品{{ product_name }}信息</strong>
+    {% endif %}
+    <p>
+        <a href="/dailywork">返回首页</a>
+    </p>
+{% endblock %}
+

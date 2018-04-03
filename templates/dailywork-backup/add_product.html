@@ -1,0 +1,20 @@
+{% extends 'dailywork/base.html' %}
+
+{% block title %}{{ product_name }} - 添加产品{% endblock %}
+
+{% block body_block %}
+    <h1>添加新产品：</h1>
+    <form id="product_form" method="post" action="/dailywork/add_product/">
+        {% csrf_token %}
+        {% for field in formset %}
+            {{ field.help_text }}{{ field }}<br />
+        {% endfor %}
+        {% if user.is_authenticated %}
+            <p>
+            <input type="submit" name="submit" value="新建产品">
+            <br /><br />
+            <a href="/dailywork/">返回</a>
+        {% endif %}
+    </form>
+{% endblock %}
+

@@ -1,0 +1,61 @@
+{% extends 'dailywork/base.html' %}
+{% load static %}
+
+{% block title%}产品列表{% endblock %}
+
+{% block body_block %}
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-table"></i>产品列表</div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>产品标识</th>
+                            <th>产品名称</th>
+                            <th>订单数量</th>
+                            <th>交付日期</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% if products %}
+                        {% for product in products %}
+                        <tr>
+                            <td>{{ product.product_id }}</td>
+                            <td><a href="/dailywork/product/{{ product.utl }}">{{ product.product_name }}</a></td>
+                            <td>{{ product.order_num }}</td>
+                            <td>{{ product.deliver_date }}</td>
+                        </tr>
+                        {% endfor %}
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer small text-muted">数据更新时间：XX-XX-XX XX:XX:XX</div>
+    </div>
+    {% if user.is_authenticated %}
+    <a class="btn btn-primary" href="/dailywork/add_product/" id="add_product">添加新产品</a>
+    {% endif %}
+    {% if user.is_authenticated %}
+        <h1>{{ user.username }}，您好！欢迎登录产品信息系统</h1>
+    {% else %}
+        <h1>游客，您好！欢迎查询</h1>
+    {% endif %}
+    {% if products %}
+        <u1>
+            {% for product in products %}
+            <li><a href="/dailywork/product/{{ product.url }}">{{ product.product_name }}</a></li>
+            {% endfor %}
+        </u1>
+    {% else %}
+        <strong>当前尚未添加任何产品</strong>
+    {% endif %}
+    <p>
+        {% if user.is_authenticated %}
+        <a href="/dailywork/add_product/">添加新产品</a>
+        {% endif %}
+    </p>
+{% endblock %}
+

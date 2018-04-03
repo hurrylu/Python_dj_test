@@ -1,0 +1,27 @@
+{% extends 'dailywork/base.html' %}
+
+{% block title %}{{ product_name }} - 添加工序{% endblock %}
+
+{% block body_block %}
+    <div class="container">
+        {% if not product_name_url %}
+            <div>查无此产品</div>
+        {% else %}
+            <form id="process_form" method="post" action="/dailywork/product/{{ product_name_url }}/add_process/">
+                {% csrf_token %}
+                {% for field in formset %}
+                    {{ field.errors }}<br />
+                    {{ field.help_text }}{{ field }}<br />
+                {% endfor %}
+                {% if user.is_authenticated %}
+                    <p>
+                    <input type="submit" name="submit" value="新建工序">
+                    <br /><br />
+                    <a href="/dailywork/product/{{ product_name_url }}/">返回</a>
+                    </p>
+                {% endif %}
+            </form>
+        {% endif %}
+    </div>
+{% endblock %}
+
